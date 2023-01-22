@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { invoke } from "@tauri-apps/api/tauri";
+import {writeText} from '@tauri-apps/api/clipboard'; 
 import "./App.css";
 
 function App() {
@@ -13,7 +14,15 @@ function App() {
   async function start_stamp() {
       StartStamp(await invoke("start_stamp"));
  }
-
+  async function writeStartStampClipboard(){
+    // start stamp to clipboard
+    await writeText(EndstampMsg)
+  }
+  async function writeEndStampClipboard(){
+    // end stamp to clipboard
+    await writeText(EndstampMsg)
+  }
+  
   return (
     <div className="container">
       <h1>Welcome to ChronoStamp</h1>
@@ -32,6 +41,12 @@ function App() {
       </div>
       <p>{EndstampMsg}</p>
       <p>{StartstampMsg}</p>
+          <button type="button" onClick={() => writeStartStampClipboard()}>
+            Start Clip 
+          </button>
+          <button type="button" onClick={() => writeEndStampClipboard()}>
+            End   Clip 
+          </button>
     </div>
   );
 }
