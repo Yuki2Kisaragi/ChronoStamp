@@ -4,8 +4,8 @@ import {writeText} from '@tauri-apps/api/clipboard';
 import "./App.css";
 
 function App() {
-  const [StartstampMsg, StartStamp] = useState("");
-  const [EndstampMsg, EndStamp] = useState("");
+  const [StartStampMsg, StartStamp] = useState("");
+  const [EndStampMsg, EndStamp] = useState("");
   
   async function end_stamp() {
       EndStamp(await invoke("end_stamp"));
@@ -16,11 +16,11 @@ function App() {
  }
   async function writeStartStampClipboard(){
     // start stamp to clipboard
-    await writeText(EndstampMsg)
+    await writeText(StartStampMsg)
   }
   async function writeEndStampClipboard(){
     // end stamp to clipboard
-    await writeText(EndstampMsg)
+    await writeText(EndStampMsg)
   }
   
   return (
@@ -39,8 +39,8 @@ function App() {
           </button>
         </div>
       </div>
-      <p>{EndstampMsg}</p>
-      <p>{StartstampMsg}</p>
+      <p>{EndStampMsg}</p>
+      <p>{StartStampMsg}</p>
           <button type="button" onClick={() => writeStartStampClipboard()}>
             Start Clip 
           </button>
