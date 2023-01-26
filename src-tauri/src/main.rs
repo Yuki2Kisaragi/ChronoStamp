@@ -48,14 +48,9 @@ async fn end_stamp() -> String {
     stamp_comment
 }
 
-#[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
-}
-
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet, start_stamp, end_stamp,])
+        .invoke_handler(tauri::generate_handler![start_stamp, end_stamp,])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
