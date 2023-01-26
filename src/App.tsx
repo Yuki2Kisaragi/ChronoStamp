@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { TextareaAutosize } from "@mui/material";
 import { invoke } from "@tauri-apps/api/tauri";
 import { writeText } from '@tauri-apps/api/clipboard'; 
 import "./App.css";
@@ -35,8 +36,12 @@ const App = () => {
         </div>
       </div>
 
-      <p>{message}</p>
-
+      <TextareaAutosize
+        aria-label="minimum height"
+        minRows={4}
+        value={message}
+        placeholder="TimeStamp"
+      />
       <button type="button" onClick={handleClickClipboard}>
         Clipboardにコピーする
       </button>
