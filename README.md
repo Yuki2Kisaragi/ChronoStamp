@@ -1,4 +1,4 @@
-# WIP:ChronoStamp
+# ChronoStamp
 
 This is TimeStamp GUI Application
 
@@ -30,9 +30,6 @@ git clone git@github.com:Mshimono/chrno-stamp.git
 cd chrno-stamp
 yarn tauri build
 ```
-
-## Not implemented feature [TODO] 
-- Clipboard
 
 ## Tauri + React + Typescript
 
